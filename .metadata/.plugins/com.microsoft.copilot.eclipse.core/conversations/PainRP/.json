@@ -1,0 +1,28 @@
+{
+  "conversationId": "",
+  "requesterUsername": "PainRP",
+  "responderUsername": "GitHub Copilot",
+  "turns": [
+    {
+      "reply": {
+        "annotations": [],
+        "references": [],
+        "hideText": false,
+        "notifications": [],
+        "followups": [],
+        "errorMessages": [],
+        "editAgentRounds": [],
+        "panelMessages": [],
+        "steps": [],
+        "agentMessages": [],
+        "data": {},
+        "billingMultiplier": 0.0
+      },
+      "turnId": "69d4af51-f3a5-45d3-a6de-d9d2a5a776a3",
+      "role": "copilot",
+      "timestamp": "2026-02-26T00:08:26.672755900Z"
+    }
+  ],
+  "creationDate": "2026-02-26T00:08:26.669232500Z",
+  "lastMessageDate": "2026-02-26T00:08:26.672755900Z"
+}

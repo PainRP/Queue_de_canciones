@@ -1,0 +1,34 @@
+package umg.edu.gt.model;
+
+import umg.edu.gt.data_structure.queue.manual.QueueLinked;
+
+public class MediaPlayer {
+	private QueueLinked<Song> MusicList = new QueueLinked<>();
+	
+	public MediaPlayer(QueueLinked<Song> MusicList)
+	{
+		this.MusicList = MusicList;
+	}
+
+	public void reproduce(QueueLinked<Song> MusicList) 
+	{
+		while (!MusicList.isEmpty())
+		{
+			System.out.println(MusicList.peek().getTitle());
+			for(int i = 0; i <= MusicList.peek().getDuration(); i++ ) 
+			{
+				System.out.println(i);
+			}
+			MusicList.dequeue();
+				
+		}
+	}
+	
+	
+	public void start(QueueLinked MusicList) 
+	{
+		
+		
+	}
+	
+}

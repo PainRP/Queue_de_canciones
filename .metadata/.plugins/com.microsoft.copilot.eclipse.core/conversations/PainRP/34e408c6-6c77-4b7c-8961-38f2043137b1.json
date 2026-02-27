@@ -1,0 +1,98 @@
+{
+  "conversationId": "34e408c6-6c77-4b7c-8961-38f2043137b1",
+  "title": "Implementing a Priority Queue for Media Playback",
+  "requesterUsername": "PainRP",
+  "responderUsername": "GitHub Copilot",
+  "turns": [
+    {
+      "message": {
+        "text": "voy a crear un sistema de prioridad, pense que pudiera crear dos colar y al momento de enqueue mandarlo a una función que mire su prioridad, pero para ese método, si quiero mantener que cada clase tenga una unica función (tipo el mediaplayer, unicamente para cosas realacionadas al reproducir) donde lo deberia hacer? o creo otra clase"
+      },
+      "currentDocument": {
+        "uri": "/queueHandler/src/main/java/umg/edu/gt/data_structure/queue/queueHandler/Main.java"
+      },
+      "references": [
+        {
+          "uri": "/queueHandler/src/main/java/umg/edu/gt/model/MediaPlayer.java"
+        }
+      ],
+      "ignoredSkills": [],
+      "userLanguage": "en",
+      "source": "panel",
+      "model": "Gemini 3 Flash (Preview)",
+      "chatMode": "Ask",
+      "needToolCallConfirmation": true,
+      "turnId": "a5c364f2-7702-4977-b7e9-1de0f0eb1668",
+      "role": "user",
+      "timestamp": "2026-02-25T22:05:43.037985300Z"
+    },
+    {
+      "reply": {
+        "text": "To maintain the Single Responsibility Principle, you should create a new class titled `PlaylistManager` or `QueueManager`. This class will be responsible for the logic of organizing songs based on priority, keeping the `MediaPlayer` focused strictly on playback and the `Song` class focused on data.\n\nThe `PlaylistManager` will manage the internal queues and provide a single ordered queue for the `MediaPlayer` to consume.\n\n### Step-by-step implementation:\n\n1.  **Create `PlaylistManager`**: This class will contain two internal queues (e.g., `highPriority` and `lowPriority`).\n2.  **Add `addSong` method**: This method will evaluate the `Song` priority level and route it to the appropriate internal queue.\n3.  **Add `getCompleteQueue` method**: This method merges the queues (prioritizing high-priority ones) into a single queue that the `MediaPlayer` can process.\n\n```java\npackage umg.edu.gt.model;\n\nimport umg.edu.gt.data_structure.queue.manual.QueueLinked;\n\npublic class PlaylistManager {\n    private QueueLinked\u003cSong\u003e highPriorityQueue \u003d new QueueLinked\u003c\u003e();\n    private QueueLinked\u003cSong\u003e normalPriorityQueue \u003d new QueueLinked\u003c\u003e();\n\n    public void addSong(Song song) {\n        // Assuming priority 1 is high and 2 is normal\n        if (song.getPriority() \u003d\u003d 1) {\n            highPriorityQueue.enqueue(song);\n        } else {\n            normalPriorityQueue.enqueue(song);\n        }\n    }\n\n    public QueueLinked\u003cSong\u003e getOrderedQueue() {\n        QueueLinked\u003cSong\u003e orderedQueue \u003d new QueueLinked\u003c\u003e();\n        \n        while (!highPriorityQueue.isEmpty()) {\n            orderedQueue.enqueue(highPriorityQueue.dequeue());\n        }\n        \n        while (!normalPriorityQueue.isEmpty()) {\n            orderedQueue.enqueue(normalPriorityQueue.dequeue());\n        }\n        \n        return orderedQueue;\n    }\n}\n```\n\nThen, update `Main.java` to use the manager:\n\n```java\npackage umg.edu.gt.data_structure.queue.queueHandler;\n\nimport umg.edu.gt.data_structure.queue.manual.QueueLinked;\nimport umg.edu.gt.model.Song;\nimport umg.edu.gt.model.MediaPlayer;\nimport umg.edu.gt.model.PlaylistManager;\n\npublic class Main \n{\n    public static void main( String[] args )\n    {\n        PlaylistManager manager \u003d new PlaylistManager();\n        \n        // Priority 1 \u003d High, Priority 2 \u003d Normal\n        manager.addSong(new Song(\"Glimpse of us\", \"Joji\", 30, 1));\n        manager.addSong(new Song(\"Mania Cardiaca\", \"Enjambre\", 15, 2));\n        manager.addSong(new Song(\"MELT\", \"MASS OF FERMENTING DREGS\", 20, 1));\n        \n        QueueLinked\u003cSong\u003e finalQueue \u003d manager.getOrderedQueue();\n        \n        MediaPlayer player \u003d new MediaPlayer(finalQueue);\n        player.reproduce(finalQueue);\n    }\n}\n```",
+        "annotations": [],
+        "references": [],
+        "hideText": false,
+        "notifications": [],
+        "followups": [],
+        "errorMessages": [],
+        "editAgentRounds": [],
+        "panelMessages": [],
+        "steps": [],
+        "agentMessages": [],
+        "data": {},
+        "modelName": "Gemini 3 Flash (Preview)",
+        "billingMultiplier": 0.33
+      },
+      "suggestedTitle": "Implementing a Priority Queue for Media Playback",
+      "turnId": "9fdb29b4-7240-4dea-8db6-1f65aa1b2b14",
+      "role": "copilot",
+      "timestamp": "2026-02-25T22:05:43.412163100Z"
+    },
+    {
+      "message": {
+        "text": "en mi main estoy usando la dependencia de queue del m2 o del otro proyecto?"
+      },
+      "currentDocument": {
+        "uri": "/queueHandler/src/main/java/umg/edu/gt/data_structure/queue/queueHandler/Main.java"
+      },
+      "references": [
+        {
+          "uri": "/queueHandler/src/main/java/umg/edu/gt/data_structure/queue/queueHandler/Main.java"
+        }
+      ],
+      "ignoredSkills": [],
+      "userLanguage": "en",
+      "source": "panel",
+      "model": "Gemini 3 Flash (Preview)",
+      "chatMode": "Ask",
+      "needToolCallConfirmation": true,
+      "turnId": "1c513661-443b-43a2-b0a8-0f161b8f78ad",
+      "role": "user",
+      "timestamp": "2026-02-25T22:09:11.252426200Z"
+    },
+    {
+      "reply": {
+        "text": "Based on the import `umg.edu.gt.data_structure.queue.manual.QueueLinked`, you are using a local class defined within your own project structure. \n\nThe package naming convention `umg.edu.gt...` indicates it is part of your local source code or a local module rather than an external library from the Maven central repository (`.m2`). If you are working in a multi-module project (Maven/Gradle), it refers to the `manual` package in the sibling module or directory of your workspace.\n\n```java\n// This import points to a package within your local project files\nimport umg.edu.gt.data_structure.queue.manual.QueueLinked;\n```",
+        "annotations": [],
+        "references": [],
+        "hideText": false,
+        "notifications": [],
+        "followups": [],
+        "errorMessages": [],
+        "editAgentRounds": [],
+        "panelMessages": [],
+        "steps": [],
+        "agentMessages": [],
+        "data": {},
+        "modelName": "Gemini 3 Flash (Preview)",
+        "billingMultiplier": 0.33
+      },
+      "suggestedTitle": "Implementing a Priority Queue for Media Playback",
+      "turnId": "74e79d14-eb02-422f-9355-ab7474b90b9a",
+      "role": "copilot",
+      "timestamp": "2026-02-25T22:09:11.342686800Z"
+    }
+  ],
+  "creationDate": "2026-02-25T22:05:42.926291100Z",
+  "lastMessageDate": "2026-02-25T22:09:20.593583600Z"
+}

@@ -1,0 +1,52 @@
+package umg.edu.gt.model;
+
+import umg.edu.gt.data_structure.queue.manual.QueueLinked;
+
+public class MediaPlayer {
+	private QueueLinked<Song> MusicList = new QueueLinked<>();
+	
+	public MediaPlayer(QueueLinked<Song> MusicList)
+	{
+		this.MusicList = MusicList;
+	}
+
+	public void reproduce1(QueueLinked<Song> MusicList) 
+	{
+		while (!MusicList.isEmpty())
+		{
+			System.out.println("Playing: "+MusicList.peek().getTitle());
+			for(int i = 0; i <= MusicList.peek().getDuration(); i++ ) 
+			{
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.print("\rProgress: " + i+ "/"+MusicList.peek().getDuration());
+			}
+			System.out.println("\nFinished: " + MusicList.peek().getTitle() + "\n");
+			MusicList.dequeue();
+				
+		}
+	}
+	
+	public void reproduce(QueueLinked<Song> MusicList) {
+		while (!MusicList.isEmpty()) {
+			Song song = MusicList.peek();
+			int duration = song.getDuration();
+			System.out.println("Playing: " + song.getTitle());
+
+			for (int i = 0; i <= duration; i++) {
+				try { Thread.sleep(1000); } catch (Exception e) { Thread.currentThread().interrupt(); }
+
+				int progress = (i * 20) / duration;
+				String bar = "====================".substring(0, progress) + "                    ".substring(progress);
+				System.out.print("\r[" + bar + "] " + i + "/" + duration + "s");
+			}
+			System.out.println("\nFinished: " + song.getTitle() + "\n");
+			MusicList.dequeue();
+		}
+	}
+	
+}

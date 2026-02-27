@@ -1,0 +1,40 @@
+package umg.edu.gt.data_structure.queue.queueHandler;
+
+import umg.edu.gt.data_structure.queue.manual.QueueLinked;
+import umg.edu.gt.model.Song;
+import umg.edu.gt.model.MediaPlayer;
+import umg.edu.gt.model.PlaylistManageer;
+
+class Main 
+{
+    public static void main( String[] args )
+    {
+     
+    	Song song1 = new Song ("Glimpse of us","Joji",30,1);
+    	Song song2 = new Song ("Mania Cardiaca","Enjambre",5,2);
+    	Song song3 = new Song ("MELT","MASS OF FERMENTING DREGS",5,1);
+    	
+    	QueueLinked<Song> HighPriority = new QueueLinked<>();
+    	QueueLinked<Song> NormalPriority = new QueueLinked<>();
+    	
+    	PlaylistManageer Priority = new PlaylistManageer(HighPriority,NormalPriority);
+    	
+    	Priority.addSong(song1);
+    	Priority.addSong(song2);
+    	Priority.addSong(song3);
+    	
+    	QueueLinked<Song> queue = new QueueLinked<>();
+    	queue.enqueue(song1);
+    	queue.enqueue(song2);
+    	queue.enqueue(song3);
+    	
+    	
+    	
+    	MediaPlayer playerHigh = new MediaPlayer(HighPriority);
+    	MediaPlayer playerNormal = new MediaPlayer(NormalPriority);
+    	
+    	playerHigh.reproduce(HighPriority);
+    	playerNormal.reproduce(NormalPriority);
+    	
+    }
+}

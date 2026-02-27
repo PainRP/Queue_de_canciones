@@ -1,0 +1,10 @@
+package umg.edu.gt.data_estructure.queue.queueHandler;
+
+
+public class Main 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}

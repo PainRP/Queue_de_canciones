@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.m2e.Maven2LaunchConfigurationType">
+    <booleanAttribute key="M2_BATCH" value="false"/>
+    <stringAttribute key="M2_GOALS" value="-U archetype:generate"/>
+    <listAttribute key="M2_PROPERTIES">
+        <listEntry value="archetypeGroupId=org.apache.maven.archetypes"/>
+        <listEntry value="archetypeArtifactId=maven-archetype-quickstart"/>
+        <listEntry value="archetypeVersion=1.1"/>
+        <listEntry value="groupId=umg.edu.gt.data_estructure.queue"/>
+        <listEntry value="artifactId=queueHandler"/>
+        <listEntry value="version=1.0-SNAPSHOT"/>
+        <listEntry value="package=umg.edu.gt.data_estructure.queue.queueHandler"/>
+        <listEntry value="outputDirectory=C:\Users\SANDRA\Desktop\Universidad\2026\Semestre 5\Progra 3\Queue_de_canciones"/>
+    </listAttribute>
+    <booleanAttribute key="M2_SAVE_BEFORE_LAUNCH" value="false"/>
+    <booleanAttribute key="org.eclipse.debug.ui.private" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.WORKING_DIRECTORY" value="C:\Users\SANDRA\AppData\Local\Temp\m2e-archetypeGenerator6482319510777175956"/>
+</launchConfiguration>

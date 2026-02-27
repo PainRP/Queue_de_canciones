@@ -1,0 +1,13 @@
+package umg.edu.gt.data_estructure.queue.queueHandler;
+
+
+public class Main 
+{
+    public static void main( String[] args )
+    {
+     
+    	Song song1 = new Song ("Glimpse of us","Joji",30,1);
+    	
+    	
+    }
+}

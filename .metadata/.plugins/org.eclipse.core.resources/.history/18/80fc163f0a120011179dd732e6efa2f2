@@ -1,0 +1,25 @@
+package umg.edu.gt.model;
+
+import umg.edu.gt.data_structure.queue.manual.QueueLinked;
+
+public class MediaPlayer {
+	private QueueLinked<Song> MusicList = new QueueLinked<>();
+	
+	public MediaPlayer(QueueLinked<Song> MusicList)
+	{
+		this.MusicList = MusicList;
+	}
+
+	public void reproduce(QueueLinked MusicList) 
+	{
+		
+	}
+	
+	
+	public void start(QueueLinked MusicList) 
+	{
+		
+		
+	}
+	
+}

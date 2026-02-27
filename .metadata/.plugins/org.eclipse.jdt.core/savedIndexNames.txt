@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+C:\Users\SANDRA\Desktop\Universidad\2026\Semestre 5\Progra 3\Queue_de_canciones\.metadata\.plugins\org.eclipse.jdt.core
+1865797976.index
+1934745937.index
+2020208508.index

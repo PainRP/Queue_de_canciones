@@ -1,0 +1,50 @@
+package umg.edu.gt.data_structure.queue.manual;
+
+public class QueueLinked {
+
+    private Node head; // primero en salir
+    private Node tail; // ultimo en entrar
+    private int size;
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    // add
+    public void enqueue(int value) {
+        Node node = new Node(value);
+        if (isEmpty()) {
+            head = tail = node;
+        } else {
+            tail.next = node;
+            tail = node;
+        }
+        size++;
+    }
+
+    // delete
+    public int dequeue() {
+        if (isEmpty()) 
+            throw new IllegalStateException("Queue underflow");
+        
+        int value = head.value;
+        head = head.next;
+        if (head == null) {
+            tail = null;
+        }
+        size--;
+        return value;
+    }
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("Queue underflow");
+        }
+        return head.value;
+    }
+
+}
