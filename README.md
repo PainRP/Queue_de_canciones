@@ -2,7 +2,7 @@
 
 Este proyecto es una simulación de un reproductor tipo Spotify desarrollado en Java. Utiliza una arquitectura modular basada en Maven y una estructura de datos de **Cola (Queue)** implementada manualmente desde cero (sin usar el Java Collections Framework).
 
-## 🚀 Características Principales
+## Características Principales
 - **Estructura de Datos Manual:** Implementación de una `QueueLinked<T>` basada en nodos con operaciones $O(1)$.
 - **Sistema de Prioridades:** Gestión de canciones por niveles (Alta y Normal).
 - **Simulación Realista:** Reproducción segundo a segundo con barra de progreso visual en consola.
