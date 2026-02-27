@@ -1,4 +1,4 @@
-# 🎵 Simulador de Reproducción de Música (Queue System)
+# Simulador de Reproducción de Música (Queue System)
 
 Este proyecto es una simulación de un reproductor tipo Spotify desarrollado en Java. Utiliza una arquitectura modular basada en Maven y una estructura de datos de **Cola (Queue)** implementada manualmente desde cero (sin usar el Java Collections Framework).
 
@@ -10,7 +10,7 @@ Este proyecto es una simulación de un reproductor tipo Spotify desarrollado en 
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```text
 /
@@ -22,7 +22,7 @@ Este proyecto es una simulación de un reproductor tipo Spotify desarrollado en 
 
 ---
 
-## 🛠️ Instalación y Configuración
+## Instalación y Configuración
 
 ### 1. Compilar e Instalar la Librería (Queue)
 Antes de ejecutar el reproductor, se debe instalar la librería en el repositorio local de Maven:
@@ -43,7 +43,7 @@ mvn clean package
 
 ---
 
-## 🖥️ Ejecución desde Consola
+## Ejecución desde Consola
 
 Para ejecutar el programa, utiliza el **Fat JAR** generado en la carpeta `target`:
 
@@ -54,7 +54,7 @@ java -jar queueHandler-1.0-SNAPSHOT-jar-with-dependencies.jar
 
 ---
 
-## 🧠 Diseño y Decisiones Técnicas
+## Diseño y Decisiones Técnicas
 
 ### 1. Implementación de la Cola
 Se desarrolló la clase `QueueLinked<T>` utilizando una estructura de **Nodos Enlazados**.
@@ -74,14 +74,14 @@ Se utiliza `Thread.sleep(1000)` dentro de un bucle que recorre la duración de l
 
 ---
 
-## 🛠️ Mejoras Implementadas (Parte D)
+## Mejoras Implementadas (Parte D)
 Se incluyeron las siguientes extensiones de complejidad:
 1.  **Barra de Progreso Visual:** Representación gráfica del avance de la canción mediante caracteres `=` y espacios.
 2.  **Contador de Reproducción:** El sistema mantiene un conteo correlativo de las canciones reproducidas a través de las diferentes colas.
 
 ---
 
-## 📸 Evidencias de Funcionamiento
+## Evidencias de Funcionamiento
 
 A continuación, se adjuntan las capturas del proceso (los archivos deben estar en la carpeta `/evidencias` del repositorio):
 
